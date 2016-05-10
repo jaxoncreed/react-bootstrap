@@ -1,19 +1,25 @@
-import {addObjects, addObject, updateObject, deleteObject, openObject, closeObject, INITIAL_STATE} from './core';
+import * as handlers from './core';
 
-export default function reducer(state = INITIAL_STATE, action) {
+export default function reducer(state = handlers.INITIAL_STATE, action) {
   switch (action.type) {
   case 'ADD_OBJECTS':
-    return addObjects(state, action.objects);
+    return handlers.addObjects(state, action.objects);
   case 'ADD_OBJECT':
-    return addObject(state, action.object);
+    return handlers.addObject(state, action.object);
   case 'UPDATE_OBJECT':
-    return updateObject(state, action.object);
+    return handlers.updateObject(state, action.object);
   case 'DELETE_OBJECT':
-  	return deleteObject(state, action.id);
+  	return handlers.deleteObject(state, action.id);
   case 'OPEN_OBJECT':
-    return openObject(state, action.id);
+    return handlers.openObject(state, action.id);
   case 'CLOSE_OBJECT':
-    return closeObject(state, action.id);
+    return handlers.closeObject(state, action.id);
+  case 'UPDATE_EDIT':
+    return handlers.updateEdit(state, action.index, action.newInfo);
+  case 'SAVE_EDIT':
+    return handlers.saveEdit(state, action.index, action.toSave);
+  case 'DISCARD_EDIT':
+    return handlers.discardEdit(state, action.index);
   }
   return state;
 }

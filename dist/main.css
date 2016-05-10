@@ -181,6 +181,8 @@ body {
     display: inline-block;
     font-size: 12px;
     cursor: pointer;
+  	margin-left: 5px;
+  	margin-right: 5px;
 }
 
 .no-ui-content {

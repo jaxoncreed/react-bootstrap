@@ -48,23 +48,8 @@ export const INITIAL_STATE = {
 			}
 		}
 	},
-	openObjects: [
-		{
-			name: "Joe Map",
-			id: "111",
-			type: "MAP",
-			data: {
-				name: "Joe",
-				age: 34,
-				family: {
-					name: "Family Collection",
-					id: "112",
-					type: "LIST"
-				}
-			}
-		}
-	],
-	objectFocus: 0
+	openObjects: [],
+	objectFocus: null
 };
 
 export function addObjects(state, objects) {
@@ -97,7 +82,7 @@ export function openObject(state, id) {
 	var newState = cloneDeep(state);
 	var openObjectIndex = findIndex(newState.openObjects, { id: id });
 	if (openObjectIndex === -1) {
-		newState.openObjects.push(cloneDeep(newState.objects[id]));
+		newState.openObjects.push({ id: id });
 		newState.objectFocus = newState.openObjects.length - 1;
 	} else {
 		newState.objectFocus = openObjectIndex;
@@ -116,14 +101,21 @@ export function closeObject(state, index) {
 	return newState;
 }
 
-export function enterEdit() {
-	console.log("hello");
+export function updateEdit(state, index, newInfo) {
+	var newState = cloneDeep(state);
+	newState.openObjects[index].editInfo = newInfo;
+	return newState;
 }
 
-export function saveEdits() {
-
+export function saveEdit(state, index, toSave) {
+	var newState = cloneDeep(state);
+	newState.objects[newState.openObjects[index].id] = toSave;
+	delete newState.openObjects[index].editInfo;
+	return newState;
 }
 
-export function discardEdits() {
-
+export function discardEdit(state, index) {
+	var newState = cloneDeep(state);
+	delete newState.openObjects[index].editInfo;
+	return newState;
 }

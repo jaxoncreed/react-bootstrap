@@ -10,7 +10,7 @@ const OpenNavElement = React.createClass({
   render: function() {
     return (
       <div className="open-nav shadowed">
-      	{this.props.objects.map((object, index) => {
+      	{this.props.openObjects.map((object, index) => {
           return (
             <div
               className={"open-nav-item " + ((this.props.focus === index) ? "open-nav-item-focus" : "")}
@@ -18,7 +18,7 @@ const OpenNavElement = React.createClass({
               <div className="open-nav-item-click"
                 onClick={() => this.props.openObject(object.id)}></div>
               <span className="open-nav-item-text">
-                {object.name} ({object.type})
+                {this.props.allObjects[object.id].name} ({this.props.allObjects[object.id].type})
               </span>
               <span className="open-nav-item-exit"
                 onClick={() => this.props.closeObject(index)}>
@@ -34,7 +34,8 @@ const OpenNavElement = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    objects: state.openObjects,
+    openObjects: state.openObjects,
+    allObjects: state.objects,
     focus: state.objectFocus
   };
 }

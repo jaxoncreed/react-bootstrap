@@ -11,3 +11,26 @@ export function closeObject(id) {
     id
   };
 }
+
+export function updateEdit(index, newInfo) {
+	return {
+		type: 'UPDATE_EDIT',
+		index,
+		newInfo
+	}
+}
+
+export function saveEdit(index, toSave) {
+	return {
+		type: 'SAVE_EDIT',
+		index,
+		toSave
+	}
+}
+
+export function discardEdit(index) {
+	return {
+		type: 'DISCARD_EDIT',
+		index
+	}
+}
