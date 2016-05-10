@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build & babel-node index.js",
+    "watch": "webpack --watch & babel-node index.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js  --recursive",
     "test:watch": "npm run test -- --watch",
     "build": "webpack"
