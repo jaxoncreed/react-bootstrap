@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 
 export default function startServer() {
-	const port = 8011
+	const port = 8000
 
 	const server = express();
 

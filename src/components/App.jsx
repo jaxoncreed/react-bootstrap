@@ -1,7 +1,5 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import Nav from './nav/Nav.jsx';
-import View from './view/View.jsx'
 
 export default React.createClass({
   mixins: [PureRenderMixin],
@@ -10,8 +8,7 @@ export default React.createClass({
   render: function() {
     return (
       <div className="app">
-        <Nav />
-        <View />
+        <h1>Good Afternoon. This is my App</h1>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 {
-  "name": "seldon-ui",
+  "name": "react-bootstrap",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,17 +10,9 @@
     "test:watch": "npm run test -- --watch",
     "build": "webpack"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/o-development/seldon-ui.git"
-  },
   "keywords": [],
   "author": "Jackson Morgan",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/o-development/seldon-ui/issues"
-  },
-  "homepage": "https://github.com/o-development/seldon-ui#readme",
   "devDependencies": {
     "babel-cli": "^6.7.5",
     "babel-core": "^6.7.6",
